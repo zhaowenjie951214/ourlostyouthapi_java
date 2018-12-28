@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.ourlostyouth.www.dao.SqlServerMapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="top.ourlostyouth.www.domain.User">
+        <id column="UserId" jdbcType="BIGINT" property="userId" />
+        <result column="UserName" jdbcType="INTEGER" property="userName" />
+    </resultMap>
+
+    <select id="UserList" resultMap="UserResultMap" parameterType="java.lang.String">
+        SELECT *  FROM UserInfo Where UserId =#{UserId}
+    </select>
+    <!--<select id="selectCrystalMessageByNo"  parameterType="java.lang.String">-->
+        <!--SELECT *  FROM bill_crystal_message_new  where crystal_no  = #{crystalNo}-->
+    <!--</select>-->
+    <!--<select id="selectMaterielMessgeByGroupNo" parameterType="java.lang.String">-->
+        <!--SELECT *  FROM bill_crystal_message_new WHERE crystal_group_no =#{crystalGroupNo}-->
+    <!--</select>-->
+
+
+    <!--<resultMap id="selectMaterielMessgeByCrystalIdsMap" type="cc.jc.mes.bill.domain.MaterielMessge">-->
+        <!--<id column="id" jdbcType="BIGINT" property="id" />-->
+        <!--<result column="crystal_no" jdbcType="INTEGER" property="crystalNo" />-->
+    <!--</resultMap>-->
+    <!--<select id="selectMaterielMessgeByCrystalIds"  resultType="map" resultMap="selectMaterielMessgeByCrystalIdsMap">-->
+        <!--SELECT * FROM bill_crystal_message_new WHERE id in-->
+        <!--<foreach  item="item" collection="array" index="index"  open="(" separator="," close=")">#{item}</foreach>-->
+        <!--and  crystal_group_no IS NOT NULL-->
+    <!--</select>-->
+
+    <!--<delete id="ReleaseStickByCrystalGroupNo" parameterType="java.lang.String">-->
+        <!--UPDATE bill_crystal_message_new SET crystal_group_no = NULL WHERE crystal_group_no = #{groupNo}-->
+    <!--</delete>-->
+ <!---->
+
+    <!--<insert id="insertbatch" parameterType="java.util.List" useGeneratedKeys="true">-->
+        <!--<selectKey keyProperty="id" resultType="long" order="BEFORE">-->
+            <!--SELECT LAST_INSERT_ID()-->
+        <!--</selectKey>-->
+        <!--INSERT INTO bill_crystal_message(pallet_number,no,crystal_no,norms,crystal_length,chip_length,weight,oblique,-->
+        <!--theory_weight,customer_type,factory_weight,crystal_grey,chip_grey,line_mark,out_date,order_no,order_number,-->
+        <!--product_name,batch_number,ship_type,company,delivery_date,excel_id,total_id,loss_value,factory_card,-->
+        <!--scratch,knife_mark,notgrind,size_anomaly,anti_knife_mark,reject_weight,electric_model)-->
+        <!--VALUES-->
+        <!--<foreach collection="list" item="item" separator=",">-->
+            <!--(#{item.palletNumber},#{item.no},#{item.crystalNo},#{item.norms},#{item.crystalLength},#{item.chipLength},#{item.weight},#{item.oblique},-->
+            <!--#{item.theoryWeight},#{item.customerType},#{item.factoryWeight},#{item.crystalGrey},#{item.chipGrey},#{item.lineMark},#{item.outDate},#{item.orderNo},-->
+            <!--#{item.orderNumber},#{item.productName},#{item.batchNumber},#{item.shipType},#{item.company},#{item.deliveryDate},#{item.excelId},#{item.totalId},-->
+            <!--#{item.lossValue},#{item.factoryCard},#{item.scratch},#{item.knifeMark},#{item.notgrind},#{item.sizeAnomaly},#{item.antiKnifeMark},-->
+            <!--#{item.rejectWeight},#{item.electricModel})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <!--<update id="UpdateByCrystalNoList" parameterType="java.util.Map">-->
+        <!--<if test="crystalNoList != null and crystalNoList.size() > 0">-->
+            <!--UPDATE bill_crystal_message_new SET bool_linecut_loading = 1 WHERE crystal_no IN-->
+            <!--<foreach collection="crystalNoList" index="index" item="crystalNo" open="(" separator="," close=")">-->
+                <!--#{crystalNo}-->
+            <!--</foreach>-->
+        <!--</if>-->
+    <!--</update>-->
+</mapper>
