@@ -7,35 +7,50 @@ server:
 
 spring:
   datasource:
-      mysql:
-        jdbc-url: jdbc:mysql://47.99.105.168:3306/jcmesnmtwo?useUnicode=true&characterEncoding=utf8
-        username: root
-        password: hzjs123456
-        driver-class-name: com.mysql.cj.jdbc.Driver
-#  server=116.196.118.203;database=Myhome;uid=sa;pwd=zwj.9426464
-      sqlservers:
-        jdbc-url: jdbc:sqlserver://116.196.118.203;DatabaseName=Myhome
-        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-        username: sa
-        password: zwj20180520.
-        initial-size: 1
-        min-idle: 1
-        max-active: 20
-        test-on-borrow: true
-        max-wait: 60000
-        time-between-eviction-runs-millis: 60000
-        min-evictable-idle-time-millis: 300000
-        validation-query: SELECT 1 FROM DUAL
-        test-While-Idle: true
-        test-on-return: false
-        pool-prepared-statements: false
-        max-pool-prepared-statement-per-connection-size: 20
-        filters: stat,wall,log4j,config
+    mysql:
+      jdbc-url: jdbc:mysql://47.99.105.168:3306/jcmesnmtwo?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: hzjs123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    #server=116.196.118.203;database=Myhome;uid=sa;pwd=zwj.9426464
+    sqlservers:
+      jdbc-url: jdbc:sqlserver://116.196.118.203;Datab  aseName=Myhome
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      username: sa
+      password: zwj20180520.
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-While-Idle: true
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall,log4j,config
+  mail:
+    host: smtp.qq.com
+    username: 616397681@qq.com
+    password: fvjvuowidjscbeja
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 #控制台打印sql 注意：logging 前面不许有空格
 logging:
-    level:
-      top.ourlostyouth.www.dao.SqlServerMapper: debug
-      top.ourlostyouth.www.dao.MySqlMapper: debug
+  level:
+    top.ourlostyouth.www.dao.SqlServerMapper: debug
+    top.ourlostyouth.www.dao.MySqlMapper: debug
+
+
+
+
 
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.ourlostyouth.www.dao.SqlServerMapper.UserMapper">
+    <resultMap id="UserResultMap" type="top.ourlostyouth.www.domain.User">
+    </resultMap>
+
+    <select id="userList" resultMap="UserResultMap" parameterType="java.lang.String">
+        SELECT *  FROM UserInfo Where UserId =#{UserId}
+    </select>
+</mapper>

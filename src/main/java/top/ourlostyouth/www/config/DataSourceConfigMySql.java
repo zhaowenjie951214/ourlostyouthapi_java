@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 // 配置mybatis的接口类放的地方
 @MapperScan(basePackages = "top.ourlostyouth.www.dao.MySqlMapper", sqlSessionFactoryRef = "MySqlSqlSessionFactory")
 public class DataSourceConfigMySql {
-    // 将这个对象放入Spring容器中     
+    // 将这个对象放入Spring容器中
     @Bean(name = "DataSourceConfigMySql")
     // 表示这个数据源是默认数据源
     @Primary
@@ -39,7 +39,7 @@ public class DataSourceConfigMySql {
         bean.setDataSource(datasource);
         bean.setMapperLocations(
                 // 设置mybatis的xml所在位置
-                    new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/MySql/*.xml"));
+                    new PathMatchingResourcePatternResolver().getResources("classpath*:top/ourlostyouth/www/dao/MySqlMapper/mapper/*.xml"));
         return bean.getObject();
     }
     @Bean("MySqlSqlSessionTemplate")

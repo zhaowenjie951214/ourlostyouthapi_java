@@ -28,7 +28,8 @@ public class DataSourceConfigSqlServer {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(datasource);
         bean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/SqlServer/*.xml"));
+        new PathMatchingResourcePatternResolver().getResources("classpath*:top/ourlostyouth/www/dao/SqlServerMapper/mapper/*.xml"));
+        //new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/SqlServer/*.xml"));
         return bean.getObject();
     }
     @Bean("SqlServerSqlSessionFactory")
@@ -36,5 +37,4 @@ public class DataSourceConfigSqlServer {
             @Qualifier("SqlServerSqlSessionFactory") SqlSessionFactory sessionfactory) {
         return new SqlSessionTemplate(sessionfactory);
     }
-
 }

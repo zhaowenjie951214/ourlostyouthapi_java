@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <springfox.version>2.7.0</springfox.version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- swagger  start -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <!-- swagger  end -->
 
         <!-- MySQL驱动 -->
         <dependency>
@@ -54,9 +68,13 @@
             <!-- 1.1.5 升级版本 mapperScan  要这个包 tk.mybatis.spring.annotation.MapperScan  -->
             <version>2.1.2</version>
         </dependency>
+        <!-- 发送邮件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -64,5 +82,13 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>
